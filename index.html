@@ -19,6 +19,7 @@
     <!-- Custom Config for Brand Colors based on your image -->
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -61,12 +62,21 @@
         ::-webkit-scrollbar-track {
             background: #f1f1f1;
         }
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
         ::-webkit-scrollbar-thumb {
             background: #312e81;
             border-radius: 4px;
         }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4338ca;
+        }
         ::-webkit-scrollbar-thumb:hover {
             background: #4338ca;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
         }
         
         .glass-card {
@@ -74,12 +84,16 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-sans antialiased overflow-x-hidden transition-colors duration-300">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-sm dark:shadow-slate-900/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo Area -->
@@ -88,18 +102,28 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="text-slate-600 hover:text-edoovi-dark font-medium transition">Home</a>
-                    <a href="#products" class="text-slate-600 hover:text-edoovi-dark font-medium transition">Products</a>
-                    <a href="#about" class="text-slate-600 hover:text-edoovi-dark font-medium transition">About Labs</a>
-                    <a href="#contact" class="px-6 py-2.5 rounded-full bg-edoovi-dark text-white font-medium hover:bg-edoovi-accent transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#home" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 font-medium transition">Home</a>
+                    <a href="#products" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 font-medium transition">Products</a>
+                    <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 font-medium transition">About Labs</a>
+                    <a href="#contact" class="px-6 py-2.5 rounded-full bg-edoovi-dark dark:bg-cyan-600 text-white font-medium hover:bg-edoovi-accent dark:hover:bg-cyan-500 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                         Contact Us
                     </a>
+                    <!-- Dark Mode Toggle Button -->
+                    <button id="theme-toggle" class="p-2.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-edoovi-dark dark:focus:ring-cyan-500" aria-label="Toggle dark mode">
+                        <i data-lucide="sun" id="theme-icon" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" id="theme-icon-moon" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-edoovi-dark focus:outline-none">
+                <div class="md:hidden flex items-center gap-3">
+                    <!-- Dark Mode Toggle Button (Mobile) -->
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all duration-300 focus:outline-none" aria-label="Toggle dark mode">
+                        <i data-lucide="sun" id="theme-icon-mobile" class="w-5 h-5 hidden dark:block"></i>
+                        <i data-lucide="moon" id="theme-icon-moon-mobile" class="w-5 h-5 block dark:hidden"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 focus:outline-none">
                         <i data-lucide="menu" class="w-8 h-8"></i>
                     </button>
                 </div>
@@ -107,44 +131,44 @@
         </div>
         
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 absolute w-full shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t dark:border-slate-700 p-4 absolute w-full shadow-lg">
             <div class="flex flex-col space-y-4">
-                <a href="#home" class="text-slate-600 hover:text-edoovi-dark font-medium">Home</a>
-                <a href="#products" class="text-slate-600 hover:text-edoovi-dark font-medium">Products</a>
-                <a href="#about" class="text-slate-600 hover:text-edoovi-dark font-medium">About Labs</a>
-                <a href="#contact" class="text-edoovi-dark font-bold">Contact Us</a>
+                <a href="#home" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 font-medium">Home</a>
+                <a href="#products" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 font-medium">Products</a>
+                <a href="#about" class="text-slate-600 dark:text-slate-300 hover:text-edoovi-dark dark:hover:text-cyan-400 font-medium">About Labs</a>
+                <a href="#contact" class="text-edoovi-dark dark:text-cyan-400 font-bold">Contact Us</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+    <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
         <!-- Background Blobs -->
-        <div class="absolute top-0 -left-4 w-72 h-72 bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div class="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-cyan-300 dark:bg-cyan-900/40 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 dark:opacity-30 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 dark:bg-indigo-900/40 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 dark:opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300 dark:bg-blue-900/40 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 dark:opacity-30 animate-blob animation-delay-4000"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center lg:text-left lg:flex lg:items-center lg:justify-between">
                 <div class="lg:w-1/2">
-                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 border border-indigo-100 text-edoovi-dark text-sm font-semibold mb-6">
-                        <span class="flex h-2 w-2 rounded-full bg-cyan-400 mr-2"></span>
+                    <div class="inline-flex items-center px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-100 dark:border-indigo-800 text-edoovi-dark dark:text-cyan-400 text-sm font-semibold mb-6">
+                        <span class="flex h-2 w-2 rounded-full bg-cyan-400 dark:bg-cyan-500 mr-2"></span>
                         Next Gen Software Solutions
                     </div>
-                    <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 leading-tight mb-6">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold text-slate-900 dark:text-white leading-tight mb-6">
                         Smart Logic for <br>
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-edoovi-dark via-indigo-600 to-cyan-400">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-edoovi-dark via-indigo-600 to-cyan-400 dark:from-cyan-400 dark:via-indigo-400 dark:to-cyan-300">
                             Modern Business.
                         </span>
                     </h1>
-                    <p class="text-lg text-slate-600 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        At <span class="font-bold text-edoovi-dark">Edoovi Labs</span>, we craft intelligent ecosystems. From ERPs to Fitness management, our suite of tools drives efficiency and growth.
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        At <span class="font-bold text-edoovi-dark dark:text-cyan-400">Edoovi Labs</span>, we craft intelligent ecosystems. From ERPs to Fitness management, our suite of tools drives efficiency and growth.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <a href="#products" class="px-8 py-4 rounded-full bg-edoovi-dark text-white font-bold text-lg shadow-lg hover:bg-edoovi-accent transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                        <a href="#products" class="px-8 py-4 rounded-full bg-edoovi-dark dark:bg-cyan-600 text-white font-bold text-lg shadow-lg hover:bg-edoovi-accent dark:hover:bg-cyan-500 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
                             Explore Products <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </a>
-                        <a href="#contact" class="px-8 py-4 rounded-full bg-white text-edoovi-dark border-2 border-edoovi-dark font-bold text-lg hover:bg-indigo-50 transition flex items-center justify-center">
+                        <a href="#contact" class="px-8 py-4 rounded-full bg-white dark:bg-slate-800 text-edoovi-dark dark:text-cyan-400 border-2 border-edoovi-dark dark:border-cyan-500 font-bold text-lg hover:bg-indigo-50 dark:hover:bg-slate-700 transition flex items-center justify-center">
                             Get a Demo
                         </a>
                     </div>
@@ -155,52 +179,52 @@
                 <div class="lg:w-1/2 mt-20 lg:mt-0 relative flex justify-center items-center">
                     
                   <!-- Glow Behind -->
-                  <div class="absolute inset-0 bg-gradient-to-tr from-cyan-300/20 to-indigo-500/20 blur-3xl rounded-full opacity-60"></div>
+                  <div class="absolute inset-0 bg-gradient-to-tr from-cyan-300/20 to-indigo-500/20 dark:from-cyan-500/20 dark:to-indigo-600/20 blur-3xl rounded-full opacity-60"></div>
                   
                   <!-- Main Orbit Container -->
                   <div class="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
                       
                       <!-- Rotating Rings -->
-                      <div class="absolute inset-0 border border-indigo-200/40 rounded-full w-full h-full animate-[spin_20s_linear_infinite] border-t-indigo-400 border-r-indigo-400"></div>
-                      <div class="absolute inset-[15%] border border-dashed border-cyan-300/40 rounded-full animate-[spin_15s_linear_infinite_reverse] border-t-cyan-400 border-r-cyan-400"></div>
+                      <div class="absolute inset-0 border border-indigo-200/40 dark:border-indigo-700/40 rounded-full w-full h-full animate-[spin_20s_linear_infinite] border-t-indigo-400 dark:border-t-indigo-500 border-r-indigo-400 dark:border-r-indigo-500"></div>
+                      <div class="absolute inset-[15%] border border-dashed border-cyan-300/40 dark:border-cyan-600/40 rounded-full animate-[spin_15s_linear_infinite_reverse] border-t-cyan-400 dark:border-t-cyan-500 border-r-cyan-400 dark:border-r-cyan-500"></div>
                       
                       <!-- Center Core -->
-                      <div class="relative z-20 w-32 h-32 bg-white/80 backdrop-blur-md rounded-full shadow-2xl flex items-center justify-center border-4 border-white">
+                      <div class="relative z-20 w-32 h-32 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-2xl flex items-center justify-center border-4 border-white dark:border-slate-700">
                           <div class="text-center relative z-10">
                               <div class="size-14 mx-auto flex items-center justify-center text-white mb-1">
                                   <img src="assets/img/favicon-16x16.webp" alt="Edoovi" class="w-full h-full object-contain">
                               </div>
-                              <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Ecosystem</span>
+                              <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Ecosystem</span>
                           </div>
                           <!-- Pulse Effect -->
-                          <div class="absolute inset-0 rounded-full border-4 border-cyan-400/20 animate-ping"></div>
+                          <div class="absolute inset-0 rounded-full border-4 border-cyan-400/20 dark:border-cyan-500/30 animate-ping"></div>
                       </div>
 
                       <!-- Floating Satellite Products -->
                       
                       <!-- Product 1: Listing (Top Left) -->
-                      <a href="#products" class="absolute top-[5%] left-[5%] md:left-[0%] z-30 p-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_6s_ease-in-out_infinite]">
+                      <a href="#products" class="absolute top-[5%] left-[5%] md:left-[0%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_6s_ease-in-out_infinite]">
                           <div class="flex items-center gap-3">
                               <img src="assets/img/edooviHMSLogo.webp" alt="Edoovi HMS" class="w-auto h-6">
                           </div>
                       </a>
 
                       <!-- Product 2: HMS (Top Right) -->
-                      <a href="#products" class="absolute top-[10%] right-[0%] md:-right-[5%] z-30 p-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_5s_ease-in-out_infinite]" style="animation-delay: 1s;">
+                      <a href="#products" class="absolute top-[10%] right-[0%] md:-right-[5%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_5s_ease-in-out_infinite]" style="animation-delay: 1s;">
                           <div class="flex items-center gap-3">
                             <img src="assets/img/edooviListingLogo.webp" alt="Edoovi HMS" class="w-auto h-6">
                           </div>
                       </a>
 
                       <!-- Product 3: ERP (Bottom Right) -->
-                      <a href="#products" class="absolute bottom-[10%] right-[5%] md:right-[0%] z-30 p-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_7s_ease-in-out_infinite]" style="animation-delay: 2s;">
+                      <a href="#products" class="absolute bottom-[10%] right-[5%] md:right-[0%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_7s_ease-in-out_infinite]" style="animation-delay: 2s;">
                           <div class="flex items-center gap-3">
                             <img src="assets/img/edooviHMSLogo.webp" alt="Edoovi HMS" class="w-auto h-6">
                           </div>
                       </a>
 
                       <!-- Product 4: FIT (Bottom Left) -->
-                      <a href="#products" class="absolute bottom-[5%] left-[0%] md:-left-[5%] z-30 p-4 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_5.5s_ease-in-out_infinite]" style="animation-delay: 0.5s;">
+                      <a href="#products" class="absolute bottom-[5%] left-[0%] md:-left-[5%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_5.5s_ease-in-out_infinite]" style="animation-delay: 0.5s;">
                           <div class="flex items-center gap-3">
                             <img src="assets/img/edooviListingLogo.webp" alt="Edoovi HMS" class="w-auto h-6">
                           </div>
@@ -212,80 +236,80 @@
     </section>
 
     <!-- Products Section -->
-    <section id="products" class="py-24 bg-white relative">
+    <section id="products" class="py-24 bg-white dark:bg-slate-800 relative transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-cyan-500 font-bold tracking-wider uppercase text-sm">Our Products</span>
-                <h2 class="text-4xl font-extrabold text-slate-900 mt-2 mb-4">The Edoovi Suite</h2>
-                <p class="text-slate-600 text-lg">Powerful, scalable, and secure software solutions tailored for your industry needs.</p>
+                <span class="text-cyan-500 dark:text-cyan-400 font-bold tracking-wider uppercase text-sm">Our Products</span>
+                <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white mt-2 mb-4">The Edoovi Suite</h2>
+                <p class="text-slate-600 dark:text-slate-300 text-lg">Powerful, scalable, and secure software solutions tailored for your industry needs.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <!-- Product 1: Listing -->
-                <div class="group relative bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white border border-slate-100 hover:border-cyan-100 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="search" class="w-24 h-24 text-cyan-500"></i>
+                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-cyan-100 dark:hover:border-cyan-800 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
+                        <i data-lucide="search" class="w-24 h-24 text-cyan-500 dark:text-cyan-400"></i>
                     </div>
-                    <div class="w-14 h-14 bg-cyan-100 text-cyan-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300">
+                    <div class="w-14 h-14 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300">
                         <i data-lucide="list" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Edoovi Listing</h3>
-                    <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi Listing</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
                         The ultimate directory and listing management platform. Connect buyers and sellers effortlessly with smart search and location services.
                     </p>
-                    <a href="#" class="inline-flex items-center text-edoovi-dark font-semibold group-hover:text-cyan-500 transition">
+                    <a href="#" class="inline-flex items-center text-edoovi-dark dark:text-cyan-400 font-semibold group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                     </a>
                 </div>
 
                 <!-- Product 2: HMS -->
-                <div class="group relative bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white border border-slate-100 hover:border-indigo-100 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="activity" class="w-24 h-24 text-indigo-500"></i>
+                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-800 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
+                        <i data-lucide="activity" class="w-24 h-24 text-indigo-500 dark:text-indigo-400"></i>
                     </div>
-                    <div class="w-14 h-14 bg-indigo-100 text-indigo-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 group-hover:text-white transition-colors duration-300">
+                    <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-indigo-600 dark:group-hover:bg-indigo-500 group-hover:text-white transition-colors duration-300">
                         <i data-lucide="stethoscope" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Edoovi HMS</h3>
-                    <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi HMS</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
                         Comprehensive Hospital Management System. Streamline patient records, appointments, and billing with medical-grade precision.
                     </p>
-                    <a href="#" class="inline-flex items-center text-edoovi-dark font-semibold group-hover:text-indigo-600 transition">
+                    <a href="#" class="inline-flex items-center text-edoovi-dark dark:text-indigo-400 font-semibold group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                     </a>
                 </div>
 
                 <!-- Product 3: ERP -->
-                <div class="group relative bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white border border-slate-100 hover:border-blue-100 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="bar-chart-2" class="w-24 h-24 text-blue-500"></i>
+                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-blue-100 dark:hover:border-blue-800 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
+                        <i data-lucide="bar-chart-2" class="w-24 h-24 text-blue-500 dark:text-blue-400"></i>
                     </div>
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
+                    <div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-600 dark:group-hover:bg-blue-500 group-hover:text-white transition-colors duration-300">
                         <i data-lucide="briefcase" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Edoovi ERP</h3>
-                    <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi ERP</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
                         Enterprise Resource Planning made simple. Manage inventory, HR, finance, and operations in one unified dashboard.
                     </p>
-                    <a href="#" class="inline-flex items-center text-edoovi-dark font-semibold group-hover:text-blue-600 transition">
+                    <a href="#" class="inline-flex items-center text-edoovi-dark dark:text-blue-400 font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-300 transition">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                     </a>
                 </div>
 
                 <!-- Product 4: FIT -->
-                <div class="group relative bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white border border-slate-100 hover:border-teal-100 hover:-translate-y-2">
-                    <div class="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="heart" class="w-24 h-24 text-teal-500"></i>
+                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-teal-100 dark:hover:border-teal-800 hover:-translate-y-2">
+                    <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
+                        <i data-lucide="heart" class="w-24 h-24 text-teal-500 dark:text-teal-400"></i>
                     </div>
-                    <div class="w-14 h-14 bg-teal-100 text-teal-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors duration-300">
+                    <div class="w-14 h-14 bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-teal-500 dark:group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300">
                         <i data-lucide="dumbbell" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Edoovi FIT</h3>
-                    <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi FIT</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
                         The ultimate gym and fitness management tool. Handle memberships, trainers, and diet plans to power a healthier world.
                     </p>
-                    <a href="#" class="inline-flex items-center text-edoovi-dark font-semibold group-hover:text-teal-500 transition">
+                    <a href="#" class="inline-flex items-center text-edoovi-dark dark:text-teal-400 font-semibold group-hover:text-teal-500 dark:group-hover:text-teal-300 transition">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                     </a>
                 </div>
@@ -295,7 +319,7 @@
     </section>
 
     <!-- Why Choose Us / About Stripe -->
-    <section id="about" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <section id="about" class="py-20 bg-slate-900 dark:bg-slate-950 text-white relative overflow-hidden transition-colors duration-300">
         <!-- Abstract Background -->
         <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-l from-indigo-900 to-transparent opacity-50"></div>
@@ -368,15 +392,15 @@
     </section>
 
     <!-- CTA Section -->
-    <section id="contact" class="py-24 bg-gradient-to-br from-indigo-50 to-white">
+    <section id="contact" class="py-24 bg-gradient-to-br from-indigo-50 to-white dark:from-slate-800 dark:to-slate-900 transition-colors duration-300">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold text-slate-900 mb-6">Ready to transform your business?</h2>
-            <p class="text-xl text-slate-600 mb-10">
-                Join hundreds of businesses using <span class="text-edoovi-dark font-bold">Edoovi Labs</span> solutions to streamline their operations.
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-white mb-6">Ready to transform your business?</h2>
+            <p class="text-xl text-slate-600 dark:text-slate-300 mb-10">
+                Join hundreds of businesses using <span class="text-edoovi-dark dark:text-cyan-400 font-bold">Edoovi Labs</span> solutions to streamline their operations.
             </p>
-            <form class="max-w-md mx-auto bg-white p-2 rounded-full shadow-xl flex items-center border border-slate-200 focus-within:ring-2 focus-within:ring-indigo-500 transition">
-                <input type="email" placeholder="Enter your email address" class="flex-1 min-w-0 px-6 py-3 bg-transparent outline-none text-slate-700" required>
-                <button type="submit" class="bg-edoovi-dark hover:bg-edoovi-accent text-white px-8 py-3 rounded-full font-bold transition duration-300 flex items-center gap-2">
+            <form class="max-w-md mx-auto bg-white dark:bg-slate-800 p-2 rounded-full shadow-xl flex items-center border border-slate-200 dark:border-slate-700 focus-within:ring-2 focus-within:ring-indigo-500 dark:focus-within:ring-cyan-500 transition">
+                <input type="email" placeholder="Enter your email address" class="flex-1 min-w-0 px-6 py-3 bg-transparent outline-none text-slate-700 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500" required>
+                <button type="submit" class="bg-edoovi-dark dark:bg-cyan-600 hover:bg-edoovi-accent dark:hover:bg-cyan-500 text-white px-8 py-3 rounded-full font-bold transition duration-300 flex items-center gap-2">
                     Get Started <i data-lucide="send" class="w-4 h-4"></i>
                 </button>
             </form>
@@ -384,54 +408,54 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 pt-16 pb-8">
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 pt-16 pb-8 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
                         <img src="assets/img/edooviListingLogo.webp" alt="Edoovi" class="w-auto h-10">
                     </div>
-                    <p class="text-slate-500 text-sm leading-relaxed">
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                         Innovating for a better tomorrow. Edoovi Labs provides cutting-edge software solutions for healthcare, fitness, and enterprise management.
                     </p>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Products</h4>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li><a href="#" class="hover:text-cyan-500 transition">Edoovi Listing</a></li>
-                        <li><a href="#" class="hover:text-cyan-500 transition">Edoovi HMS</a></li>
-                        <li><a href="#" class="hover:text-cyan-500 transition">Edoovi ERP</a></li>
-                        <li><a href="#" class="hover:text-cyan-500 transition">Edoovi FIT</a></li>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Products</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi Listing</a></li>
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi HMS</a></li>
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi ERP</a></li>
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi FIT</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Company</h4>
-                    <ul class="space-y-2 text-sm text-slate-600">
-                        <li><a href="#" class="hover:text-cyan-500 transition">About Us</a></li>
-                        <li><a href="#" class="hover:text-cyan-500 transition">Careers</a></li>
-                        <li><a href="#" class="hover:text-cyan-500 transition">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-cyan-500 transition">Terms of Service</a></li>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">About Us</a></li>
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Careers</a></li>
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Terms of Service</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-slate-900 mb-4">Contact</h4>
-                    <ul class="space-y-3 text-sm text-slate-600">
-                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-cyan-500"></i> Tech Park, Jaipur, RJ</li>
-                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-cyan-500"></i> hello@edoovilabs.com</li>
-                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-cyan-500"></i> +91 98765 43210</li>
+                    <h4 class="font-bold text-slate-900 dark:text-white mb-4">Contact</h4>
+                    <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                        <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-cyan-500 dark:text-cyan-400"></i> Tech Park, Jaipur, RJ</li>
+                        <li class="flex items-center gap-2"><i data-lucide="mail" class="w-4 h-4 text-cyan-500 dark:text-cyan-400"></i> hello@edoovilabs.com</li>
+                        <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-cyan-500 dark:text-cyan-400"></i> +91 98765 43210</li>
                     </ul>
                     <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-slate-400 hover:text-cyan-500 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-indigo-600 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="text-slate-400 hover:text-pink-600 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-slate-400 dark:text-slate-500 hover:text-cyan-500 dark:hover:text-cyan-400 transition"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-slate-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="text-slate-400 dark:text-slate-500 hover:text-pink-600 dark:hover:text-pink-400 transition"><i data-lucide="instagram" class="w-5 h-5"></i></a>
                     </div>
                 </div>
             </div>
             
-            <div class="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+            <div class="border-t border-slate-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500 dark:text-slate-400">
                 <p>&copy; 2025 Edoovi Labs. All rights reserved.</p>
                 <div class="flex gap-4 mt-4 md:mt-0">
                     <span>Designed with ❤️ in India</span>
@@ -451,6 +475,52 @@
 
         btn.addEventListener('click', () => {
             menu.classList.toggle('hidden');
+        });
+
+        // Dark Mode Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to light mode
+        const currentTheme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        // Apply theme on page load
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Function to toggle theme
+        function toggleTheme() {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Re-initialize icons to update theme icons
+            lucide.createIcons();
+        }
+
+        // Add event listeners
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        if (themeToggleMobile) {
+            themeToggleMobile.addEventListener('click', toggleTheme);
+        }
+
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    html.classList.add('dark');
+                } else {
+                    html.classList.remove('dark');
+                }
+                lucide.createIcons();
+            }
         });
 
     </script>
