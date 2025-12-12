@@ -19,6 +19,9 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.edoovilabs.com/">
     
+    <!-- Additional Performance Hints -->
+    <link rel="preload" href="assets/img/edooviListingLogo.webp" as="image" type="image/webp">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/webp" sizes="16x16" href="assets/img/favicon-16x16.webp">
     <link rel="icon" type="image/webp" sizes="32x32" href="assets/img/favicon-16x16.webp">
@@ -54,6 +57,10 @@
     <!-- Google Fonts: Outfit for a modern tech look (similar to the logo font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS -->
@@ -145,7 +152,7 @@
             <div class="flex justify-between items-center h-20">
                 <!-- Logo Area -->
                 <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <img src="assets/img/edooviListingLogo.webp" alt="Edoovi Labs - Software Solutions Company Logo" title="Edoovi Labs - Innovating the Future with Smart Software Solutions" class="w-auto h-10">
+                    <img src="assets/img/edooviListingLogo.webp" alt="Edoovi Labs - Software Solutions Company Logo" title="Edoovi Labs - Innovating the Future with Smart Software Solutions" class="w-auto h-10" loading="eager" fetchpriority="high">
                 </div>
 
                 <!-- Desktop Menu -->
@@ -241,7 +248,7 @@
                       <div class="relative z-20 w-32 h-32 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md rounded-full shadow-2xl flex items-center justify-center border-4 border-white dark:border-slate-700">
                           <div class="text-center relative z-10">
                               <div class="size-14 mx-auto flex items-center justify-center text-white mb-1">
-                                  <img src="assets/img/favicon-16x16.webp" alt="Edoovi Labs Ecosystem Logo - Software Solutions Platform" title="Edoovi Labs Ecosystem - Complete Software Solutions Suite" class="w-full h-full object-contain">
+                                  <img src="assets/img/favicon-16x16.webp" alt="Edoovi Labs Ecosystem Logo - Software Solutions Platform" title="Edoovi Labs Ecosystem - Complete Software Solutions Suite" class="w-full h-full object-contain" loading="lazy">
                               </div>
                               <span class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Ecosystem</span>
                           </div>
@@ -252,23 +259,23 @@
                       <!-- Floating Satellite Products -->
                       
                       <!-- Product 1: Listing (Top Left) -->
-                      <a href="#products" title="Explore Edoovi Listing - Directory and Listing Management Platform" aria-label="View Edoovi Listing product details" class="absolute top-[5%] left-[5%] md:left-[0%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_6s_ease-in-out_infinite]">
+                      <a href="#products" title="Explore Edoovi - Directory and Listing Management Platform" aria-label="View Edoovi product details" class="absolute top-[5%] left-[5%] md:left-[0%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_6s_ease-in-out_infinite]">
                           <div class="flex items-center gap-3">
-                              <img src="assets/img/edooviHMSLogo.webp" alt="Edoovi HMS Logo - Hospital Management System Software" title="Edoovi HMS - Comprehensive Hospital Management System" class="w-auto h-6">
+                              <img src="assets/img/edooviHMSLogo.webp" alt="Edoovi HMS Logo - Hospital Management System Software" title="Edoovi HMS - Comprehensive Hospital Management System" class="w-auto h-6" loading="lazy">
                           </div>
                       </a>
 
                       <!-- Product 2: HMS (Top Right) -->
-                      <a href="#products" title="Explore Edoovi Listing - Business Directory Platform" aria-label="View Edoovi Listing product details" class="absolute top-[10%] right-[0%] md:-right-[5%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_5s_ease-in-out_infinite]" style="animation-delay: 1s;">
+                      <a href="#products" title="Explore Edoovi - Business Directory Platform" aria-label="View Edoovi product details" class="absolute top-[10%] right-[0%] md:-right-[5%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_5s_ease-in-out_infinite]" style="animation-delay: 1s;">
                           <div class="flex items-center gap-3">
-                            <img src="assets/img/edooviListingLogo.webp" alt="Edoovi Listing Logo - Directory Management Platform" title="Edoovi Listing - Smart Directory and Listing Management" class="w-auto h-6">
+                            <img src="assets/img/edooviListingLogo.webp" alt="Edoovi Logo - Directory Management Platform" title="Edoovi - Smart Directory and Listing Management" class="w-auto h-6" loading="lazy">
                           </div>
                       </a>
 
                       <!-- Product 3: ERP (Bottom Right) -->
                       <a href="#products" title="Explore Edoovi ERP - Enterprise Resource Planning Software" aria-label="View Edoovi ERP product details" class="absolute bottom-[10%] right-[5%] md:right-[0%] z-30 p-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl shadow-xl border border-white/50 dark:border-slate-700/50 hover:shadow-2xl hover:scale-110 hover:-translate-y-2 transition-all duration-300 group animate-[float_7s_ease-in-out_infinite]" style="animation-delay: 2s;">
                           <div class="flex items-center gap-3">
-                            <img src="assets/img/edooviHMSLogo.webp" alt="Edoovi ERP Logo - Enterprise Resource Planning System" title="Edoovi ERP - Complete Business Management Solution" class="w-auto h-6">
+                            <img src="assets/img/edooviHMSLogo.webp" alt="Edoovi ERP Logo - Enterprise Resource Planning System" title="Edoovi ERP - Complete Business Management Solution" class="w-auto h-6" loading="lazy">
                           </div>
                       </a>
 
@@ -296,24 +303,24 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 
                 <!-- Product 1: Listing -->
-                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-cyan-100 dark:hover:border-cyan-800 hover:-translate-y-2">
+                <div class="group relative flex flex-col bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-cyan-100 dark:hover:border-cyan-800 hover:-translate-y-2">
                     <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
                         <i data-lucide="search" class="w-24 h-24 text-cyan-500 dark:text-cyan-400"></i>
                     </div>
                     <div class="w-14 h-14 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-600 dark:text-cyan-400 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-cyan-500 dark:group-hover:bg-cyan-600 group-hover:text-white transition-colors duration-300">
                         <i data-lucide="list" class="w-7 h-7"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi Listing</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed grow">
                         The ultimate directory and listing management platform. Connect buyers and sellers effortlessly with smart search and location services.
                     </p>
-                    <a href="#" title="Learn more about Edoovi Listing - Directory Management Platform" aria-label="Learn more about Edoovi Listing product" class="inline-flex items-center text-edoovi-dark dark:text-cyan-400 font-semibold group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition">
+                    <a href="#" title="Learn more about Edoovi - Directory Management Platform" aria-label="Learn more about Edoovi product" class="inline-flex items-center text-edoovi-dark dark:text-cyan-400 font-semibold group-hover:text-cyan-500 dark:group-hover:text-cyan-300 transition">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4 ml-1" aria-hidden="true"></i>
                     </a>
                 </div>
 
                 <!-- Product 2: HMS -->
-                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-800 hover:-translate-y-2">
+                <div class="group relative flex flex-col bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-indigo-100 dark:hover:border-indigo-800 hover:-translate-y-2">
                     <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
                         <i data-lucide="activity" class="w-24 h-24 text-indigo-500 dark:text-indigo-400"></i>
                     </div>
@@ -321,7 +328,7 @@
                         <i data-lucide="stethoscope" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi HMS</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed grow">
                         Comprehensive Hospital Management System. Streamline patient records, appointments, and billing with medical-grade precision.
                     </p>
                     <a href="#" title="Learn more about Edoovi HMS - Hospital Management System" aria-label="Learn more about Edoovi HMS product" class="inline-flex items-center text-edoovi-dark dark:text-indigo-400 font-semibold group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition">
@@ -330,7 +337,7 @@
                 </div>
 
                 <!-- Product 3: ERP -->
-                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-blue-100 dark:hover:border-blue-800 hover:-translate-y-2">
+                <div class="group relative flex flex-col bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-blue-100 dark:hover:border-blue-800 hover:-translate-y-2">
                     <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
                         <i data-lucide="bar-chart-2" class="w-24 h-24 text-blue-500 dark:text-blue-400"></i>
                     </div>
@@ -338,7 +345,7 @@
                         <i data-lucide="briefcase" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi ERP</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed grow">
                         Enterprise Resource Planning made simple. Manage inventory, HR, finance, and operations in one unified dashboard.
                     </p>
                     <a href="#" title="Learn more about Edoovi ERP - Enterprise Resource Planning" aria-label="Learn more about Edoovi ERP product" class="inline-flex items-center text-edoovi-dark dark:text-blue-400 font-semibold group-hover:text-blue-600 dark:group-hover:text-blue-300 transition">
@@ -347,7 +354,7 @@
                 </div>
 
                 <!-- Product 4: FIT -->
-                <div class="group relative bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-teal-100 dark:hover:border-teal-800 hover:-translate-y-2">
+                <div class="group relative flex flex-col bg-slate-50 dark:bg-slate-900/50 rounded-3xl p-8 transition-all duration-300 hover:shadow-2xl hover:bg-white dark:hover:bg-slate-800 border border-slate-100 dark:border-slate-700 hover:border-teal-100 dark:hover:border-teal-800 hover:-translate-y-2">
                     <div class="absolute top-0 right-0 p-6 opacity-10 dark:opacity-20 group-hover:opacity-20 dark:group-hover:opacity-30 transition">
                         <i data-lucide="heart" class="w-24 h-24 text-teal-500 dark:text-teal-400"></i>
                     </div>
@@ -355,7 +362,7 @@
                         <i data-lucide="dumbbell" class="w-7 h-7"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Edoovi FIT</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed grow">
                         The ultimate gym and fitness management tool. Handle memberships, trainers, and diet plans to power a healthier world.
                     </p>
                     <a href="#" title="Learn more about Edoovi FIT - Fitness Management Software" aria-label="Learn more about Edoovi FIT product" class="inline-flex items-center text-edoovi-dark dark:text-teal-400 font-semibold group-hover:text-teal-500 dark:group-hover:text-teal-300 transition">
@@ -462,7 +469,7 @@
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-1 md:col-span-1">
                     <div class="flex items-center gap-2 mb-4">
-                        <img src="assets/img/edooviListingLogo.webp" alt="Edoovi Labs Company Logo - Software Solutions Provider" title="Edoovi Labs - Leading Software Solutions Company" class="w-auto h-10">
+                        <img src="assets/img/edooviListingLogo.webp" alt="Edoovi Labs Company Logo - Software Solutions Provider" title="Edoovi Labs - Leading Software Solutions Company" class="w-auto h-10" loading="lazy">
                     </div>
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                         Innovating for a better tomorrow. Edoovi Labs provides cutting-edge software solutions for healthcare, fitness, and enterprise management.
@@ -472,7 +479,7 @@
                 <div>
                     <h4 class="font-bold text-slate-900 dark:text-white mb-4">Products</h4>
                     <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-                        <li><a href="#products" title="Edoovi Listing - Directory Management Platform" aria-label="View Edoovi Listing product" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi Listing</a></li>
+                        <li><a href="#products" title="Edoovi - Directory Management Platform" aria-label="View Edoovi product" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi</a></li>
                         <li><a href="#products" title="Edoovi HMS - Hospital Management System" aria-label="View Edoovi HMS product" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi HMS</a></li>
                         <li><a href="#products" title="Edoovi ERP - Enterprise Resource Planning" aria-label="View Edoovi ERP product" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi ERP</a></li>
                         <li><a href="#products" title="Edoovi FIT - Fitness Management Software" aria-label="View Edoovi FIT product" class="hover:text-cyan-500 dark:hover:text-cyan-400 transition">Edoovi FIT</a></li>
@@ -574,7 +581,7 @@
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Edoovi Listing",
+        "name": "Edoovi",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web",
         "offers": {
